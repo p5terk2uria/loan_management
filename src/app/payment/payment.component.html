@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <h3>Loan Payment Management</h3>
+  
+    <!-- Select Loan -->
+    <div class="mb-3">
+      <label for="loanSelect" class="form-label">Select Loan</label>
+      <select class="form-select" id="loanSelect" (change)="loadInstallments($event)">
+        <option value="" disabled selected>Select a loan</option>
+        <option *ngFor="let loan of loans; let i = index" [value]="i">
+          Loan {{ i + 1 }} - {{ loan.loanType }}
+        </option>
+      </select>
+    </div>
+  
+    <!-- Select Installment -->
+    <div class="mb-3" *ngIf="installments.length > 0">
+      <label for="installmentSelect" class="form-label">Select Installment</label>
+      <select class="form-select" id="installmentSelect" [(ngModel)]="selectedInstallment">
+        <option *ngFor="let installment of installments" [value]="installment.installmentNumber">
+          Installment {{ installment.installmentNumber }} - {{ installment.dueDate }} ({{ installment.status }})
+        </option>
+      </select>
+    </div>
+  
+    <!-- Payment Form -->
+    <div class="mb-3" *ngIf="selectedInstallment">
+      <label class="form-label">Payment Amount</label>
+      <input type="number" class="form-control" [(ngModel)]="paymentAmount" />
+  
+      <label class="form-label mt-2">Payment Date</label>
+      <input type="date" class="form-control" [(ngModel)]="paymentDate" />
+  
+      <button class="btn btn-primary mt-3" (click)="makePayment()">Make Payment</button>
+    </div>
+  
+    <!-- Payment History -->
+    <h5 class="mt-4">Payment History</h5>
+    <table class="table table-bordered" *ngIf="paymentHistory.length > 0">
+      <thead>
+        <tr>
+          <th>Installment</th>
+          <th>Amount Paid</th>
+          <th>Payment Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of paymentHistory">
+          <td>{{ payment.installmentNumber }}</td>
+          <td>{{ payment.amount }}</td>
+          <td>{{ payment.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

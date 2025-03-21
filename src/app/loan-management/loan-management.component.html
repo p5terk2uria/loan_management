@@ -1,0 +1,42 @@
+<div class="container mt-4">
+    <h3>Loan Management</h3>
+  
+    <form [formGroup]="loanForm" (ngSubmit)="applyLoan()">
+      <div class="mb-3">
+        <label for="customer" class="form-label">Select Customer</label>
+        <select class="form-control" formControlName="customer">
+          <option *ngFor="let customer of customers" [value]="customer.id">
+            {{ customer.fullName }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="loanType" class="form-label">Loan Type</label>
+        <select class="form-control" formControlName="loanType">
+          <option value="" disabled>Select Loan Type</option>
+          <option value="Personal Loan">Personal Loan</option>
+          <option value="Business Loan">Business Loan</option>
+        </select>
+      </div>
+      
+  
+      <div class="mb-3">
+        <label for="amount" class="form-label">Loan Amount</label>
+        <input type="number" class="form-control" formControlName="amount" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="interest" class="form-label">Interest Rate (%)</label>
+        <input type="number" class="form-control" formControlName="interest" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duration (Months)</label>
+        <input type="number" class="form-control" formControlName="duration" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Apply Loan</button>
+    </form>
+  </div>
+  

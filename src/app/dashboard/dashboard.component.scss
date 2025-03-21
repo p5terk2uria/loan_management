@@ -1,0 +1,106 @@
+/* Background gradient for the body */
+body {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+  }
+  
+  /* Button styles for primary actions */
+  button.btn-primary {
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #feb47b;
+    transform: scale(1.05);
+  }
+  
+  /* Sidebar styles */
+  #sidebar {
+    background-color: #dadddf;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.2);
+    border-right: 3px solid #ff7e5f;
+  }
+  
+  #sidebar h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  /* Sidebar Navigation */
+  .nav-item {
+    margin-bottom: 15px;
+  }
+  
+  .nav-item .nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-left: 20px;
+    border-radius: 5px;
+    transition: color 0.3s ease, transform 0.3s ease, padding-left 0.3s ease;
+  }
+  
+  .nav-item:hover .nav-link {
+    transform: scale(1.1);
+    padding-left: 30px;
+    background-color: #ff7e5f;
+    color: white;
+  }
+  
+  .nav-link {
+    color: #ddd;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #fff;
+  }
+  
+  /* Main Content */
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Card Header */
+  .card-header {
+    background-color: #ff7e5f;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 15px;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .d-flex {
+      flex-direction: column;
+    }
+  
+    .navbar {
+      text-align: center;
+      padding: 10px;
+    }
+  
+    .navbar-brand {
+      font-size: 1.25rem;
+    }
+  
+    button.btn-primary {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    #sidebar {
+      width: 100%;
+      border-right: none;
+      box-shadow: none;
+    }
+  }
+  

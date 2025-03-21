@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h3>All Customers</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Registration Date</th>
+          <th>Customer Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers; let i = index">
+          <td>
+            <img *ngIf="customer.photo" [src]="customer.photo" alt="Customer Photo" class="img-thumbnail" width="50" height="50">
+          </td>
+          <td>{{ customer.fullName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.registrationDate }}</td>
+          <td>{{ customer.customerType }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2" (click)="editCustomer(i)">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteCustomer(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

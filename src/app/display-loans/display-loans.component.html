@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h3>Loan Repayment Schedule</h3>
+  
+    <div class="mb-3">
+      <label for="loanSelect" class="form-label">Select Loan</label>
+      <select 
+        class="form-select" 
+        id="loanSelect" 
+        (change)="displaySchedule($event)">
+        <option value="" disabled selected>Select a loan</option>
+        <option *ngFor="let loan of loans; let i = index" [value]="i">
+          Loan {{ i + 1 }} - {{ loan.loanType }}
+        </option>
+      </select>
+    </div>
+  
+    <table class="table table-bordered" *ngIf="selectedSchedule.length > 0">
+      <thead>
+        <tr>
+          <th>Installment Number</th>
+          <th>Due Date</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let installment of selectedSchedule">
+          <td>{{ installment.installmentNumber }}</td>
+          <td>{{ installment.dueDate }}</td>
+          <td>{{ installment.amount }}</td>
+          <td>{{ installment.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
