@@ -32,7 +32,7 @@ export class LoanManagementComponent implements OnInit {
       ...this.loanForm.value
     };
 
-    // ✅ Prevent Duplicate Loan Application for the Same Customer and Loan Type
+    // Prevent Duplicate Loan Application for the Same Customer and Loan Type
     const existingLoan = this.loans.find(
       (loan) => 
         loan.customer === newLoan.customer && 
@@ -41,14 +41,14 @@ export class LoanManagementComponent implements OnInit {
 
     
 
-    // ✅ Add New Loan
+    // Add New Loan
     this.loans.push(newLoan);
     localStorage.setItem('loans', JSON.stringify(this.loans));
 
-    // ✅ Generate Loan Schedule
+    // Generate Loan Schedule
     this.generateLoanSchedule(newLoan);
 
-    // ✅ Reset Form
+    // Reset Form
     this.loanForm.reset();
   }
 
